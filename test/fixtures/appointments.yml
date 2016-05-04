@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-05-04
+  start_time: 2016-05-04 14:48:01
+  end_time: 2016-05-04 14:48:01
+  mentor_phase: 1
+  mentor_id: 1
+  student_id: 1
+
+two:
+  date: 2016-05-04
+  start_time: 2016-05-04 14:48:01
+  end_time: 2016-05-04 14:48:01
+  mentor_phase: 1
+  mentor_id: 1
+  student_id: 1
