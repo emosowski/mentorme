@@ -26,5 +26,4 @@ class Appointment < ActiveRecord::Base
 	      errors.add(:model_years, "This date has passed")
 	    end
 	  end
-  end
 end
