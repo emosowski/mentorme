@@ -9,7 +9,7 @@ class Appointment < ActiveRecord::Base
 
   def passed?
 		now = Time.now
-		date.year < now.year || date.month < now.month || date.day < now.day || time.hour < now.hour || time.min < now.minute
+		date.year < now.year || date.month < now.month || date.day < now.day || end_time.hour < now.hour || end_time.min < now.min
   end
 
   def open?

@@ -24,6 +24,8 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find_by(id: params[:id])
     @appointment.student_id = current_user.id
+    @appointment.save
+    # byebug
     redirect_to user_path(current_user.id)
   end
 

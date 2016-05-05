@@ -6,7 +6,7 @@
   <p><%=link_to('Show available appointments', appointments_path)%></p>
 <% end %>
 
-  <% @user.appointments.each do |appointment| %>
+  <% @user.future_appointments.each do |appointment| %>
     <h4>Appointment</h4>
     <table>
       <tr>
@@ -26,6 +26,24 @@
       </tr>
     </table>
 
-
 <% end %>
-
+<h3> Passed appointments</h3>
+    <% @user.passed_appointments.each do |appointment| %>
+    <table>
+      <tr>
+        <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
+      </tr>
+       <tr>
+        <td>Date: <%=appointment.date%></td>
+      </tr>
+      <tr>
+        <td>Start time: <%=appointment.start_time%></td>
+      </tr>
+      <tr>
+        <td>End time: <%=appointment.end_time%></td>
+      </tr>
+      <tr>
+        <td>Mentor phase: <%=appointment.mentor_phase%></td>
+      </tr>
+    </table>
+    <%end%>
