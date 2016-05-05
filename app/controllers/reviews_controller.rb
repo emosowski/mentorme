@@ -8,13 +8,14 @@ class ReviewsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @reviews = @user.reviews
-    @feedback = @user.feedback
+    @feedbacks = @user.feedback
   end
 
 
   def create
-    @review = Review.new(review_params)
-    # @user = current_user.id
+    @appointment = Appointment.find(params[:appointment_id])
+    @review = @appointment.reviews.build(review_params)
+    @review.author_id = current_user.id
     if @review.save
       redirect_to "/"
     else
