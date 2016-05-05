@@ -1,3 +1,4 @@
+
 <p><%=link_to('All appointments', appointments_path)%></p>
 <% if current_user.type == "Mentor" %>
   <p><%=link_to('Create appointment', new_appointment_path)%></p>
@@ -24,3 +25,4 @@
   </table>
 
 <% end %>
+
