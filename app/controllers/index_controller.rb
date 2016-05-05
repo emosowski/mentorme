@@ -1,5 +1,7 @@
 class IndexController < ApplicationController
   def index
-    # redirect_to '/users/sign_in'
+    if user_signed_in?
+      redirect_to user_path(current_user)
+    end
   end
 end
