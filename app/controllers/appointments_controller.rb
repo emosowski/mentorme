@@ -6,13 +6,12 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    byebug
     @appointment = Appointment.new(appointment_params)
     @appointment.mentor_id = current_user.id
-    @topic = Topic.new(params[:topic])
+    @topic = Topic.new(name: params[:appointment][:topic])
     @appointment.topics << @topic
     if @appointment.save
-      redirect_to user_path(@user)
+      redirect_to user_path(current_user.id)
     end
   end
 
