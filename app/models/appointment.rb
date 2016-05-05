@@ -9,11 +9,15 @@ class Appointment < ActiveRecord::Base
 
   def passed?
 		now = Time.now
-		date.year < now.year || date.month < now.month || date.day < now.day || time.hour < now.hour || time.min < now.minute
+		date.year < now.year || date.month < now.month || date.day < now.day || end_time.hour < now.hour || end_time.min < now.min
   end
 
   def open?
-  	self.student_id.empty?
+  	!self.student_id
+  end
+
+  def current_user_signed_up?(user)
+    self.student_id == user.id
   end
 
   def received_review
@@ -26,5 +30,5 @@ class Appointment < ActiveRecord::Base
 	      errors.add(:model_years, "This date has passed")
 	    end
 	  end
-  end
+
 end

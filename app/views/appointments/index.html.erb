@@ -1,20 +1,55 @@
-<% @appointments.each do |appointment| %>
-  <h4>Appointment</h4>
-  <table>
-    <tr>
-      <th>Mentor: <%=appointment.mentor.full_name%> </th>
-    </tr>
-     <tr>
-      <td>Date: <%=appointment.date%></td>
-    </tr>
-    <tr>
-      <td>Start time: <%=appointment.start_time%></td>
-    </tr>
-    <tr>
-      <td>End time: <%=appointment.end_time%></td>
-    </tr>
-    <tr>
-      <td>Mentor phase: <%=appointment.mentor_phase%></td>
-    </tr>
-  </table>
+<% if current_user.type == "Mentor" %>
+  <% @appointments.each do |appointment| %>
+    <h4>Appointment</h4>
+    <table>
+      <tr>
+        <th>Mentor: <%=appointment.mentor.full_name%> </th>
+      </tr>
+       <tr>
+        <td>Date: <%=appointment.date%></td>
+      </tr>
+      <tr>
+        <td>Start time: <%=appointment.start_time%></td>
+      </tr>
+      <tr>
+        <td>End time: <%=appointment.end_time%></td>
+      </tr>
+      <tr>
+        <td>Mentor phase: <%=appointment.mentor_phase%></td>
+      </tr>
+    </table>
+  <% end %>
+
+<% else %>
+    <% @appointments.each do |appointment| %>
+    <% if appointment.open? %>
+      <h4>Appointment</h4>
+      <table>
+        <tr>
+          <th>Mentor: <%=appointment.mentor.full_name%> </th>
+        </tr>
+         <tr>
+          <td>Date: <%=appointment.date%></td>
+        </tr>
+        <tr>
+          <td>Start time: <%=appointment.start_time%></td>
+        </tr>
+        <tr>
+          <td>End time: <%=appointment.end_time%></td>
+        </tr>
+        <tr>
+          <td>Mentor phase: <%=appointment.mentor_phase%></td>
+        </tr>
+      </table>
+
+      <%= form_for appointment do |f| %>
+        <%= f.submit %>
+      <%end%>
+<!--       <form action="/appointments/<%=appointment.id%>" method="post">
+        <input type="hidden" name="_method" value="put">
+        <input type="submit" value="Sign up!">
+      </form> -->
+
+    <% end %>
+  <% end %>
 <% end %>
