@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   	self.appointments.map{|app|app.received_review}
   end
 
+  def future_appointments
+    self.appointments - passed_appointments
+  end
+
   def passed_appointments
   	self.appointments.select{|app|app.passed?}
   end
