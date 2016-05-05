@@ -2,7 +2,6 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
-    @topic = Topic.new
   end
 
   def create
@@ -19,15 +18,16 @@ class AppointmentsController < ApplicationController
   end
 
   def index
-
+    @appointments = Appointment.all
   end
 
   def update
+    @appointment = Appointment.find_by(id: params[:id])
 
   end
 
   def show
-
+    @appointment = Appointment.find_by(id: params[:id])
   end
 
   private
