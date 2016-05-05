@@ -8,8 +8,11 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.mentor_id = current_user.id
-    @topic = Topic.new(name: params[:appointment][:topic])
-    @appointment.topics << @topic
+    @topics = params[:appointment][:topics].split(' ')
+    @topics.each do |topic|
+      @appointment.topics << Topic.find_or_create_by(name: topic)
+    end
+
     if @appointment.save
       redirect_to user_path(current_user.id)
     end
