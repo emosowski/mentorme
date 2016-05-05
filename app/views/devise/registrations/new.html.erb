@@ -26,18 +26,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type%>
-  </div>
-
-
-<!--   <div class="field">
-    <label for= "type">Account Type</label>
-    <select id="type" name="user[type]">
-      <option value="1" selected="selected">Student</option>
-      <option value="2">Mentor</option>
+    <label for="account_dropdown">Account</label>
+    <select id="account_dropdown" name="user[type]">
+      <option value="Student" selected="selected">Student</option>
+      <option value="Mentor">Mentor</option>
     </select>
-  </div> -->
+  </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />

@@ -14,6 +14,8 @@ class AppointmentsController < ApplicationController
 
     if @appointment.save
       redirect_to user_path(current_user.id)
+    else
+      render 'new'
     end
   end
 

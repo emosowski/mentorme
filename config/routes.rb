@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "index#index"
+  root "index#index", layout: false
   resources :users do
     get '/reviews' => 'reviews#index'
   end

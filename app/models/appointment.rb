@@ -1,5 +1,6 @@
 class Appointment < ActiveRecord::Base
   validates :date, :start_time, :end_time, :mentor_phase, :mentor_id, presence: true
+  validate :date_valid, :time_valid
 
   has_many :appointment_topics
   has_many :topics, through: :appointment_topics
@@ -24,11 +25,16 @@ class Appointment < ActiveRecord::Base
   	self.reviews.select{|rev| rev.author_id != self.id }
   end
 
-  private
-    def date_valid
-	    if self.passed?
-	      errors.add(:model_years, "This date has passed")
-	    end
-	  end
+  def date_valid
+    if self.passed? 
+      errors.add(:date, "has already passed")
+    end
+  end
 
+  def time_valid
+    time = (self.end_time.hour*60 - self.start_time.hour*60) + (self.end_time.min - self.start_time.min)
+    unless time == 30 || time == 60
+      errors.add(:time, "must be in only 30 or 60 minute slots")
+    end
+  end
 end
