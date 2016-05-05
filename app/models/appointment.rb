@@ -13,7 +13,11 @@ class Appointment < ActiveRecord::Base
   end
 
   def open?
-  	self.student_id.empty?
+  	!self.student_id
+  end
+
+  def current_user_signed_up?(user)
+    self.student_id == user.id
   end
 
   def received_review
@@ -26,5 +30,5 @@ class Appointment < ActiveRecord::Base
 	      errors.add(:model_years, "This date has passed")
 	    end
 	  end
-  end
+
 end
