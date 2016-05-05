@@ -1,26 +1,5 @@
-<form  action="/appointments" method="post">
-  <%= token_tag %>
-  <label for="date">Date:</label>
-  <input type="date" name="appointment[date]">
-    </br>
-  <label for="start_time">Start Time:</label>
-  <input type="time" name="appointment[start_time]">
-    </br>
-  <label for="end_time">End Time:</label>
-  <input type="time" name="appointment[end_time]">
-    </br>
-  <label for="end_time">Mentor Phase:</label>
-  <input type="number" name="appointment[mentor_phase]">
-    </br>
-  <label for="end_time">Topic:</label>
-  <input type="text" name="topic">
-    </br>
-  <input type="submit" value="Create Appointment">
-    </br>
-</form>
-
-<!-- <h3> Create an Appointment </h3>
-<%= simple_form_for @appointment do |f| %>
+<h3> Create an Appointment </h3>
+<%= form_for @appointment do |f| %>
   <p>
     Date: <%= f.date_select :date %>
   </p>
@@ -38,10 +17,10 @@
   </p>
 
   <p>
-
+    Topics: <%= text_field_tag 'appointment[topics]' %>
   </p>
 
   <p>
     <%= f.submit %>
   </p>
-<% end %> -->
+<% end %>

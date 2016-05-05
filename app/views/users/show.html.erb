@@ -1,1 +1,28 @@
-This is the user show page
+
+<p><%=link_to('All appointments', appointments_path)%></p>
+<% if current_user.type == "Mentor" %>
+  <p><%=link_to('Create appointment', new_appointment_path)%></p>
+<% end %>
+
+<% @user.appointments.each do |appointment| %>
+  <h4>Appointment</h4>
+  <table>
+    <tr>
+      <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
+    </tr>
+     <tr>
+      <td>Date: <%=appointment.date%></td>
+    </tr>
+    <tr>
+      <td>Start time: <%=appointment.start_time%></td>
+    </tr>
+    <tr>
+      <td>End time: <%=appointment.end_time%></td>
+    </tr>
+    <tr>
+      <td>Mentor phase: <%=appointment.mentor_phase%></td>
+    </tr>
+  </table>
+
+<% end %>
+

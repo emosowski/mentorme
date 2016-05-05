@@ -2,30 +2,32 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
-    @topic = Topic.new
   end
 
   def create
-    byebug
     @appointment = Appointment.new(appointment_params)
     @appointment.mentor_id = current_user.id
-    @topic = Topic.new(params[:topic])
-    @appointment.topics << @topic
+    @topics = params[:appointment][:topics].split(' ')
+    @topics.each do |topic|
+      @appointment.topics << Topic.find_or_create_by(name: topic)
+    end
+
     if @appointment.save
-      redirect_to user_path(@user)
+      redirect_to user_path(current_user.id)
     end
   end
 
   def index
-
+    @appointments = Appointment.all
   end
 
   def update
+    @appointment = Appointment.find_by(id: params[:id])
 
   end
 
   def show
-
+    @appointment = Appointment.find_by(id: params[:id])
   end
 
   private
