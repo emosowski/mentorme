@@ -6,7 +6,8 @@
 		<% @feedbacks.each do |feedback| %>
 			<div class="rev-blurb">
 				Rating: <%= feedback.rating %><br>
-				<%= feedback.body %><br>
+				<%= feedback.author.full_name %>: "<%= feedback.body %>"<br>
+				<br>
 			</div>
 		<% end %>
 	</div>
