@@ -1,7 +1,7 @@
 
 Topic: <%=@topic.name%>
-<% @appointments.each do |appointment| %>
     <h4>Appointments for this topic</h4>
+<% @appointments.each do |appointment| %>
     <table>
       <tr>
         <th>Mentor: <%=appointment.mentor.full_name%> </th>

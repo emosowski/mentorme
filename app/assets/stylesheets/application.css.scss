@@ -17,6 +17,13 @@
  *= require_self
  */
 
+.topic {
+	display: inline-block;
+	position: relative;
+	margin-left: 5px;
+
+}
+
 body {
 	font-weight: lighter;
 	color: gray;
