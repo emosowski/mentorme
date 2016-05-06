@@ -31,7 +31,7 @@ body {
 }
 
 a {
-	color: green;
+	color: #20B2AA;
 	font-weight: lighter;
 }
 
@@ -52,7 +52,7 @@ nav a {
 
 #main-nav a:hover {
 		text-decoration: none;
-		color: green;
+		color: #20B2AA;
 }
 
 #main-title {
@@ -133,4 +133,27 @@ nav a {
 
 #reviews {
 	margin-bottom: 20px;
+}
+
+#review-body {
+	width: 500px;
+	height: 150px;
+}
+
+#review-form {
+	text-align: center;
+	margin: 0px;
+}
+
+form input[type='submit'] {
+	background: gray;
+	border-radius: 10px;
+	width: 200px;
+	padding: 5px;
+	color: white;
+	border: none;
+}
+
+form input[type='submit']:hover {
+	background: #20B2AA
 }
