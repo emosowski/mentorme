@@ -25,12 +25,18 @@
 }
 
 body {
+	font: Helvetica, sans-serif;
 	font-weight: lighter;
 	color: gray;
 }
 
 a {
+	color: green;
 	font-weight: lighter;
+}
+
+a:hover {
+	text-decoration: none;
 }
 
 nav {
@@ -44,8 +50,9 @@ nav a {
 	color: white;
 }
 
-a:hover {
+#main-nav a:hover {
 		text-decoration: none;
+		color: green;
 }
 
 #main-title {
@@ -67,6 +74,9 @@ a:hover {
 	margin-left: 20px;
 }
 
+#usernav a {
+	margin-left: 20px;
+}
 
 #type{
 	float: right;
@@ -93,11 +103,14 @@ a:hover {
 }
 
 #all-appointments {
+	width: 80%;
 	text-align: center;
+	margin: 0px auto;
 }
 
 #all-appointments div {
 	margin: 20px 20px;
+	text-align: left;
 	width: 35%;
 	display: inline-block;
 }
