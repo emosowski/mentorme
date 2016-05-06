@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :appointments, only: [:new, :create, :index, :update, :show] do
     resources :reviews, only: [:new, :create]
   end
+
+  resources :topics, only: [:show]
 end
 
 

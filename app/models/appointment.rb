@@ -8,17 +8,31 @@ class Appointment < ActiveRecord::Base
   belongs_to :student, class_name: "User"
   belongs_to :mentor, class_name: "User"
 
-  def passed?
+  def date_passed?
 		now = Time.now
-		date.year < now.year || date.month < now.month || date.day < now.day || end_time.hour < now.hour || end_time.min < now.min
+		date.year < now.year || date.month < now.month || date.day < now.day
+  end
+
+  def current_date?
+    now = Time.now
+    date.year == now.year || date.month == now.month || date.day == now.day
+  end
+
+  def time_passed?
+    now = Time.now
+    current_date? && end_time.hour < now.hour || end_time.min < now.min
+  end
+
+  def passed?
+    date_passed? || time_passed?
   end
 
   def open?
-  	!self.student_id
+  	!student_id
   end
 
   def current_user_signed_up?(user)
-    self.student_id == user.id
+    student_id == user.id
   end
 
   def received_review(user)
@@ -26,13 +40,13 @@ class Appointment < ActiveRecord::Base
   end
 
   def date_valid
-    if self.passed? 
+    if passed?
       errors.add(:date, "has already passed")
     end
   end
 
   def time_valid
-    time = (self.end_time.hour*60 - self.start_time.hour*60) + (self.end_time.min - self.start_time.min)
+    time = (end_time.hour*60 - start_time.hour*60) + (end_time.min - start_time.min)
     unless time == 30 || time == 60
       errors.add(:time, "must be in only 30 or 60 minute slots")
     end
