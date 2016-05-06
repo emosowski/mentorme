@@ -7,13 +7,13 @@
         <th>Mentor: <%=appointment.mentor.full_name%> </th>
       </tr>
        <tr>
-        <td>Date: <%=appointment.date%></td>
+        <td>Date: <%=appointment.date.strftime('%A, %b %d')%></td>
       </tr>
       <tr>
-        <td>Start time: <%=appointment.start_time%></td>
+        <td>Start time: <%=appointment.start_time.strftime('%I:%M %p')%></td>
       </tr>
       <tr>
-        <td>End time: <%=appointment.end_time%></td>
+        <td>End time: <%=appointment.end_time.strftime('%I:%M %p')%></td>
       </tr>
       <tr>
         <td>Mentor phase: <%=appointment.mentor_phase%></td>
@@ -36,25 +36,22 @@
           <th>Mentor: <%=appointment.mentor.full_name%> </th>
         </tr>
          <tr>
-          <td>Date: <%=appointment.date%></td>
+          <td>Date: <%=appointment.date.strftime('%A, %b %d')%></td>
         </tr>
         <tr>
-          <td>Start time: <%=appointment.start_time%></td>
+          <td>Start time: <%=appointment.start_time.strftime('%I:%M %p')%></td>
         </tr>
         <tr>
-          <td>End time: <%=appointment.end_time%></td>
+          <td>End time: <%=appointment.end_time.strftime('%I:%M %p')%></td>
         </tr>
         <tr>
           <td>Mentor phase: <%=appointment.mentor_phase%></td>
         </tr>
       </table>
       </div>
-
       <%= form_for appointment do |f| %>
-        <%= f.submit %>
+        <%= f.submit "Sign Up!" %>
       <%end%>
-
-
     <% end %>
   <% end %>
 <% end %>

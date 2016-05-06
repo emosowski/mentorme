@@ -2,21 +2,21 @@
 <% @appointments.each do |appointment| %>
     <div class="app-blurb">
       <table class="app-table">
-      <tr>
-        <th>Mentor: <%=appointment.mentor.full_name%> </th>
-      </tr>
-       <tr>
-        <td>Date: <%=appointment.date%></td>
-      </tr>
-      <tr>
-        <td>Start time: <%=appointment.start_time%></td>
-      </tr>
-      <tr>
-        <td>End time: <%=appointment.end_time%></td>
-      </tr>
-      <tr>
-        <td>Mentor phase: <%=appointment.mentor_phase%></td>
-      </tr>
+        <tr>
+          <th>Mentor: <%=appointment.mentor.full_name%> </th>
+        </tr>
+         <tr>
+          <td>Date: <%=appointment.date.strftime('%A, %b %d')%></td>
+        </tr>
+        <tr>
+          <td>Start time: <%=appointment.start_time.strftime('%I:%M %p')%></td>
+        </tr>
+        <tr>
+          <td>End time: <%=appointment.end_time.strftime('%I:%M %p')%></td>
+        </tr>
+        <tr>
+          <td>Mentor phase: <%=appointment.mentor_phase%></td>
+        </tr>
     </table>
   </div>
 <% end %>
