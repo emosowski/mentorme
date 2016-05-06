@@ -1,7 +1,8 @@
+<div id="all-appointments">
 <% if current_user.type == "Mentor" %>
   <% @appointments.each do |appointment| %>
-    <h4>Appointment</h4>
-    <table>
+    <div class="app-blurb">
+    <table class="app-table">
       <tr>
         <th>Mentor: <%=appointment.mentor.full_name%> </th>
       </tr>
@@ -23,13 +24,14 @@
         <% end %>
       </tr>
     </table>
+    </div>
   <% end %>
 
 <% else %>
     <% @appointments.each do |appointment| %>
     <% if appointment.open? %>
-      <h4>Appointment</h4>
-      <table>
+      <div class="app-blurb">
+      <table class="app-table">
         <tr>
           <th>Mentor: <%=appointment.mentor.full_name%> </th>
         </tr>
@@ -46,6 +48,7 @@
           <td>Mentor phase: <%=appointment.mentor_phase%></td>
         </tr>
       </table>
+      </div>
 
       <%= form_for appointment do |f| %>
         <%= f.submit %>
@@ -55,3 +58,4 @@
     <% end %>
   <% end %>
 <% end %>
+</div>

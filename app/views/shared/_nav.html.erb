@@ -6,5 +6,10 @@
   <%end%>
   <%if user_signed_in?%>
   <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+  <span id="type"><%= current_user.type %> Account</span>
   <%end%>
+
 </nav>
+
+
+<h1 id="welcome">Yo, <%= link_to "#{current_user.username}", root_path%>!</h1>

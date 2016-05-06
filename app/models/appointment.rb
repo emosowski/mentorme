@@ -15,7 +15,7 @@ class Appointment < ActiveRecord::Base
 
   def current_date?
     now = Time.now
-    date.year == now.year || date.month == now.month || date.day == now.day
+    date.year == now.year && date.month == now.month && date.day == now.day
   end
 
   def time_passed?

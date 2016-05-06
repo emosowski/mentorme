@@ -1,13 +1,19 @@
 
-<div id="form">
-<br><h1>Reviews</h1>
-Reviews you have written:<br>
-<%= render @reviews %><br>
+<div id="reviews">
+	<h1>Reviews</h1>
+	<div id="received">
+		Reviews you have received:<br>
+		<% @feedbacks.each do |feedback| %>
+			<div class="rev-blurb">
+				Rating: <%= feedback.rating %><br>
+				<%= feedback.body %><br>
+			</div>
+		<% end %>
+	</div>
 
+	<div id="written">
+		Reviews you have written:<br>
+		<%= render @reviews %><br>
+	</div>
 
-Reivews you have received:<br><br>
-<% @feedbacks.each do |feedback| %>
-Rating: <%= feedback.rating %><br>
-<%= feedback.body %><br>
-<% end %>
 </div>
