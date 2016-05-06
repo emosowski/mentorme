@@ -1,16 +1,9 @@
-<%=link_to 'See Your Reviews', user_reviews_path(@user) %>
-<% if current_user.type == "Mentor" %>
-  <p><%=link_to('All appointments', appointments_path)%></p>
-  <p><%=link_to('Create appointment', new_appointment_path)%></p>
-<% else  %>
-  <p><%=link_to('Show available appointments', appointments_path)%></p>
-<% end %>
-
-
-    <h4>Booked Appointments</h4>
+  <div id="appointments">
+  <h3>Booked Appointments</h3>
   <% @user.future_appointments.each do |appointment|%>
     <% if !appointment.open? %>
-    <table>
+    <div class="app-blurb">
+      <table class="app-table">
       <tr>
         <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
       </tr>
@@ -36,14 +29,16 @@
         <% end %>
       </tr>
     </table>
+  </div>
     <% end %>
   <%end%>
 
 
-    <h4>Open Appointments</h4>
+    <h3>Open Appointments</h3>
   <% @user.future_appointments.each do |appointment| %>
   <% if appointment.open? %>
-    <table>
+  <div class="app-blurb">
+    <table class="app-table">
       <tr>
         <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
       </tr>
@@ -66,13 +61,15 @@
         <% end %>
       </tr>
     </table>
+  </div>
     <%end%>
 
 <% end %>
 
 <h3> Passed appointments</h3>
     <% @user.passed_appointments.each do |appointment| %>
-    <table>
+    <div class="app-blurb">
+      <table class="app-table">
       <tr>
         <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
       </tr>
@@ -98,5 +95,6 @@
         <% end %>
       </tr>
     </table>
+  </div>
     <%end%>
-
+  </div>

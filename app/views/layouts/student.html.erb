@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'shared/nav' %>
-  <h1>Hi Student <%=current_user.username%>!</h1>
+	<%= render 'shared/nav' %>
+ <%= render 'shared/user_nav' %>
 <%= yield %>
 
 </body>

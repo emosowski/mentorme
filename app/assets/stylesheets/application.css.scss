@@ -17,10 +17,95 @@
  *= require_self
  */
 
+body {
+	font-weight: lighter;
+	color: gray;
+}
+
+a {
+	font-weight: lighter;
+}
+
+nav {
+	height: 50px;
+	background-color: gray;
+	line-height: 50px;
+}
+
+nav a {
+	margin-left: 25px;
+	color: white;
+}
+
+a:hover {
+		text-decoration: none;
+}
+
+#main-title {
+	font-size: 45px;
+}
+
+#form {
+	text-align: center;
+	margin: 10%;
+}
+
+#usernav {
+	margin: 25px;
+	font-size: 20px;
+	text-align: center;
+}
+
+#usernav a {
+	margin-left: 20px;
+}
 
 
+#type{
+	float: right;
+	color: white;
+	margin-right: 20px;
+}
 
- #title-box {
- text-align: center;
- display: block;
+#welcome {
+	text-align: center;
+}
+
+#appointments {
+	margin: auto;
+	width: 80%;
+}
+
+.app-blurb {
+	margin: 20px 100px;
+	padding: 25px;
+	font-size: 16px;
+	border: 0.25px solid lightgray;
+	width: 40%;
+	border-radius: 5px;
+}
+
+#all-appointments {
+	text-align: center;
+}
+
+#all-appointments div {
+	margin: 20px 20px;
+	width: 35%;
+	display: inline-block;
+}
+
+#reviews {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+
+.rev-blurb {
+	margin: 20px auto;
+	width: 80%;
+	padding: 25px;
+	font-size: 16px;
+	border: 0.25px solid lightgray;
+	border-radius: 5px;
 }

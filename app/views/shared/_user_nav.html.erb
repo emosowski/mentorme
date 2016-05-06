@@ -1,0 +1,10 @@
+<h1 id="welcome">Yo, <%= link_to "#{current_user.username}", root_path%>!</h1>
+<div id="usernav">
+<%=link_to 'See Your Reviews', user_reviews_path(current_user) %>
+<% if current_user.type == "Mentor" %>
+  <%=link_to('All appointments', appointments_path)%>
+  <%=link_to('Create appointment', new_appointment_path)%>
+<% else  %>
+  <%=link_to('Show available appointments', appointments_path)%>
+<% end %>
+</div>

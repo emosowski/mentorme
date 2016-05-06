@@ -15,7 +15,7 @@ class Appointment < ActiveRecord::Base
 
   def current_date?
     now = Time.now
-    date.year == now.year || date.month == now.month || date.day == now.day
+    date.year == now.year && date.month == now.month && date.day == now.day
   end
 
   def time_passed?
@@ -35,8 +35,8 @@ class Appointment < ActiveRecord::Base
     student_id == user.id
   end
 
-  def received_review
-  	reviews.select{|rev| rev.author_id != self.id }
+  def received_review(user)
+  	self.reviews.select{|rev| rev.author_id != user.id }
   end
 
   def date_valid

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def feedback
-  	self.appointments.map{|app|app.received_review}.flatten
+  	self.appointments.map{|app|app.received_review(self)}.flatten
   end
 
   def future_appointments
