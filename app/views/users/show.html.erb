@@ -30,6 +30,7 @@
         <td>Student signed up: <%=User.find_by(id: appointment.student_id).full_name%></td>
       </tr>
       <tr>
+        <td>Topic(s):</td>
         <% appointment.topics.each do |topic| %>
           <td class="topic"><%=link_to(topic.name, topic_path(topic))%></td>
         <% end %>
@@ -41,7 +42,7 @@
 
     <h4>Open Appointments</h4>
   <% @user.future_appointments.each do |appointment| %>
-
+  <% if appointment.open? %>
     <table>
       <tr>
         <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
@@ -59,13 +60,13 @@
         <td>Mentor phase: <%=appointment.mentor_phase%></td>
       </tr>
         <tr>
-
+          <td>Topic(s):</td>
         <% appointment.topics.each do |topic| %>
           <td class="topic"><%=link_to(topic.name, topic_path(topic))%></td>
         <% end %>
       </tr>
     </table>
-
+    <%end%>
 
 <% end %>
 
@@ -91,8 +92,9 @@
         <td><%=link_to 'Leave Review', new_appointment_review_path(appointment) %></td>
       </tr>
       <tr>
+        <td>Topic(s):</td>
         <% appointment.topics.each do |topic| %>
-        <td class="topic"><%=link_to(topic.name, topic_path(topic))%></td>
+        <td class="topic"> <%=link_to(topic.name, topic_path(topic))%></td>
         <% end %>
       </tr>
     </table>
