@@ -1,6 +1,11 @@
 class Appointment < ActiveRecord::Base
-  validates :date, :start_time, :end_time, :mentor_phase, :mentor_id, presence: true
-  # validate :date_valid, :time_valid
+  validates :date, presence: true
+  validates :start_time, presence: true 
+  validates :end_time, presence: true
+  validates :mentor_phase, presence: true
+  validates :mentor_id, presence: true
+
+  validate :date_valid, :time_valid
 
   has_many :appointment_topics
   has_many :topics, through: :appointment_topics
@@ -14,13 +19,11 @@ class Appointment < ActiveRecord::Base
   end
 
   def current_date?
-    now = Time.now
-    date.year == now.year && date.month == now.month && date.day == now.day
+    date == Date.today
   end
 
   def time_passed?
-    now = Time.now
-    current_date? && end_time.hour < now.hour || end_time.min < now.min
+    current_date? && Time.now > end_time.getlocal
   end
 
   def passed?
@@ -46,7 +49,7 @@ class Appointment < ActiveRecord::Base
   end
 
   def time_valid
-    time = (end_time.hour*60 - start_time.hour*60) + (end_time.min - start_time.min)
+    time = (end_time.hour * 60 - start_time.hour * 60) + (end_time.min - start_time.min)
     unless time == 30 || time == 60
       errors.add(:time, "must be in only 30 or 60 minute slots")
     end
