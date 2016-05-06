@@ -17,6 +17,11 @@
       <tr>
         <td>Mentor phase: <%=appointment.mentor_phase%></td>
       </tr>
+      <tr>
+        <% appointment.topics.each do |topic| %>
+          <div class="topic"><td>topic.name</td><div>
+        <% end %>
+      </tr>
     </table>
   <% end %>
 
