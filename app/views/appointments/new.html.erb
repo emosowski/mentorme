@@ -14,7 +14,7 @@
   </div>
 <% end %>
 
-<%= form_for @appointment do |f| %>
+<%= simple_form_for @appointment do |f| %>
   <p>
     Date: <%= f.date_select :date %>
   </p>
@@ -28,8 +28,13 @@
   </p>
 
   <p>
-    Mentor Phase: <%= f.number_field :mentor_phase %>
+    Mentor Phase:
+    <select id="phase_dropdown" name="appointment[mentor_phase]">
+      <option value="2" selected="selected">2</option>
+      <option value="3">3</option>
+    </select>
   </p>
+
 
   <p>
     Topics: <%= text_field_tag 'appointment[topics]' %>
