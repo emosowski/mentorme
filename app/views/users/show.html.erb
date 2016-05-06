@@ -23,13 +23,16 @@
         <td>Student signed up: <%=User.find_by(id: appointment.student_id).full_name%></td>
       </tr>
 
-      <tr>
-        <td>Topic(s):</td>
+   <tr>
+        <td class="topic">Topic(s):
         <% appointment.topics.each do |topic| %>
-        <td class="topic"> <%=link_to(topic.name, topic_path(topic))%></td>
+         <%=link_to(topic.name, topic_path(topic))%>
         <% end %>
-       <td> BOOKED! </td>
+        </td>
       </tr>
+    <tr>
+      <td> BOOKED! </td>
+    </tr>
     </table>
   </div>
     <% else %>
@@ -52,10 +55,11 @@
       </tr>
 
       <tr>
-        <td>Topic(s):</td>
+        <td class="topic">Topic(s):
         <% appointment.topics.each do |topic| %>
-        <td class="topic"> <%=link_to(topic.name, topic_path(topic))%></td>
+         <%=link_to(topic.name, topic_path(topic))%>
         <% end %>
+        </td>
       </tr>
     </table>
   </div>
@@ -86,10 +90,11 @@
       </tr>
 
       <tr>
-        <td>Topic(s):</td>
+        <td class="topic">Topic(s):
         <% appointment.topics.each do |topic| %>
-        <td class="topic"> <%=link_to(topic.name, topic_path(topic))%></td>
+         <%=link_to(topic.name, topic_path(topic))%>
         <% end %>
+        </td>
       </tr>
         <% if appointment.reviews.empty? %>
       <tr>
