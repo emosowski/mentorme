@@ -1,5 +1,5 @@
   <div id="appointments">
-  <h3>Booked Appointments</h3>
+  <h3>Your Appointments</h3>
   <% @user.future_appointments.each do |appointment|%>
     <% if !appointment.open? %>
     <div class="app-blurb">
@@ -23,22 +23,20 @@
         <td>Student signed up: <%=User.find_by(id: appointment.student_id).full_name%></td>
       </tr>
 
-      <tr>
-        <td>Topic(s):</td>
+   <tr>
+        <td class="topic">Topic(s):
         <% appointment.topics.each do |topic| %>
-        <td class="topic"> <%=link_to(topic.name, topic_path(topic))%></td>
+         <%=link_to(topic.name, topic_path(topic))%>
         <% end %>
+        </td>
       </tr>
+    <tr>
+      <td> BOOKED! </td>
+    </tr>
     </table>
   </div>
-    <% end %>
-  <%end%>
-
-
-    <h3>Open Appointments</h3>
-  <% @user.future_appointments.each do |appointment| %>
-  <% if appointment.open? %>
-  <div class="app-blurb">
+    <% else %>
+    <div class="app-blurb">
     <table class="app-table">
       <tr>
         <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
@@ -57,16 +55,19 @@
       </tr>
 
       <tr>
-        <td>Topic(s):</td>
+        <td class="topic">Topic(s):
         <% appointment.topics.each do |topic| %>
-        <td class="topic"> <%=link_to(topic.name, topic_path(topic))%></td>
+         <%=link_to(topic.name, topic_path(topic))%>
         <% end %>
+        </td>
       </tr>
     </table>
   </div>
-    <%end%>
+    <% end %>
+  <%end%>
 
-<% end %>
+
+
 
 <h3> Passed appointments</h3>
     <% @user.passed_appointments.each do |appointment| %>
@@ -89,10 +90,11 @@
       </tr>
 
       <tr>
-        <td>Topic(s):</td>
+        <td class="topic">Topic(s):
         <% appointment.topics.each do |topic| %>
-        <td class="topic"> <%=link_to(topic.name, topic_path(topic))%></td>
+         <%=link_to(topic.name, topic_path(topic))%>
         <% end %>
+        </td>
       </tr>
         <% if appointment.reviews.empty? %>
       <tr>
