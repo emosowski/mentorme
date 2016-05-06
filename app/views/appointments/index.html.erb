@@ -19,7 +19,7 @@
       </tr>
       <tr>
         <% appointment.topics.each do |topic| %>
-          <div class="topic"><td>topic.name</td><div>
+          <td class="topic"><%=link_to(topic.name, topic_path(topic))%></td>
         <% end %>
       </tr>
     </table>
@@ -50,10 +50,7 @@
       <%= form_for appointment do |f| %>
         <%= f.submit %>
       <%end%>
-<!--       <form action="/appointments/<%=appointment.id%>" method="post">
-        <input type="hidden" name="_method" value="put">
-        <input type="submit" value="Sign up!">
-      </form> -->
+
 
     <% end %>
   <% end %>

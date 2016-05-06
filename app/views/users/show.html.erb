@@ -56,6 +56,11 @@
       <tr>
         <td><%=link_to 'Leave Review', new_appointment_review_path(appointment) %></td>
       </tr>
+      <tr>
+        <% appointment.topics.each do |topic| %>
+        <td class="topic"><%=link_to(topic.name, topic_path(topic))%></td>
+        <% end %>
+      </tr>
     </table>
     <%end%>
 
