@@ -57,7 +57,7 @@
         <td>Mentor phase: <%=appointment.mentor_phase%></td>
       </tr>
 
-    <tr>
+      <tr>
         <td class="topic">Topic(s):
         <% appointment.topics.each do |topic| %>
          <%=link_to(topic.name, topic_path(topic))%>
