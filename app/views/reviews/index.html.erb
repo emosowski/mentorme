@@ -1,20 +1,18 @@
 
 <div id="reviews">
-	<h1>Reviews</h1>
 	<div id="received">
-		Reviews you have received:<br>
+		<h4>Feedback</h4>
 		<% @feedbacks.each do |feedback| %>
 			<div class="rev-blurb">
 				Rating: <%= feedback.rating %><br>
-				<%= feedback.author.full_name %>: "<%= feedback.body %>"<br>
-				<br>
+				<%= feedback.author.full_name %>: "<%= feedback.body %>"
 			</div>
 		<% end %>
 	</div>
 
 	<div id="written">
-		Reviews you have written:<br>
-		<%= render @reviews %><br>
+		<h4>Your Reviews</h4>
+		<%= render @reviews %>
 	</div>
 
 </div>

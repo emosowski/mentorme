@@ -1,8 +1,7 @@
-
-Topic: <%=@topic.name%>
-    <h4>Appointments for this topic</h4>
+<h3>Topic: <%=@topic.name%></h3>
 <% @appointments.each do |appointment| %>
-    <table>
+    <div class="app-blurb">
+      <table class="app-table">
       <tr>
         <th>Mentor: <%=appointment.mentor.full_name%> </th>
       </tr>
@@ -19,4 +18,5 @@ Topic: <%=@topic.name%>
         <td>Mentor phase: <%=appointment.mentor_phase%></td>
       </tr>
     </table>
+  </div>
 <% end %>
