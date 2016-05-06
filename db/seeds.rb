@@ -1,5 +1,5 @@
 
-######Users#####
+####Users#####
 
 iulia = Mentor.create(username: "iulia", full_name: "Iulia Boolean", email: "iulia@iulia.com", password: "password", type: "Mentor")
 
@@ -12,7 +12,7 @@ alex = Student.create(username: "alex", full_name: "Alex Darrow", email: "alex@a
 kevin = Student.create(username: "kevin", full_name: "Kevin Perkins", email: "kevin@kevin.com", password: "password", type: "Student")
 
 
-######Topics######
+# ######Topics######
 
 ajax = Topic.create(name: "ajax")
 javascript = Topic.create(name: "javascript")
@@ -23,7 +23,7 @@ algorithms = Topic.create(name: "algorithms")
 
 ######Appointments####
 
-a1 = iulia.appointments.create(date: Date.new, start_time: Time.new, end_time: Time.new, mentor_phase: 2)
+User.first.appointments.create(date: Date.new, start_time: Time.new, end_time: Time.new, mentor_phase: 2)
 
 a2 = iulia.appointments.create(date: Date.new, start_time: Time.new, end_time: Time.new, mentor_phase: 2)
 
@@ -34,7 +34,7 @@ a2.update(student_id: 3)
 
 #######Reviews#######
 
-rev1 = a3.reviews.create(body: "You were amazzzzinngggg", rating: 5, author_id: 4)
+User.first.reviews.create(body: "You were amazzzzinngggg", rating: 5, appointment_id: 3)
 
 
 

@@ -1,4 +1,4 @@
-<div id="form">
+<div id="review-form">
 
 <%= form_for [@appointment, @review] do |f| %>
 
@@ -15,7 +15,8 @@
       </ul>
     </div>
   <% end %>
-
+<h3>Review your session here:</h3>
+<h4>Please make your feedback Actionable, Specific and Kind</h4>
   <p>
       Rating:
       <select id="phase_dropdown" name="review[rating]">
@@ -29,12 +30,11 @@
   </p>
 
   <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, id: "review-body" %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit "Submit Feedback" %>
   </p>
 
 <% end %>

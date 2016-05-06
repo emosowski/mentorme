@@ -5,16 +5,16 @@
     <div class="app-blurb">
       <table class="app-table">
       <tr>
-        <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
+        <th>Mentor: <%=appointment.mentor.full_name%> </th>
       </tr>
        <tr>
-        <td>Date: <%=appointment.date%></td>
+        <td>Date: <%=appointment.date.strftime('%A, %b %d')%></td>
       </tr>
       <tr>
-        <td>Start time: <%=appointment.start_time%></td>
+        <td>Start time: <%=appointment.start_time.strftime('%I:%M %p')%></td>
       </tr>
       <tr>
-        <td>End time: <%=appointment.end_time%></td>
+        <td>End time: <%=appointment.end_time.strftime('%I:%M %p')%></td>
       </tr>
       <tr>
         <td>Mentor phase: <%=appointment.mentor_phase%></td>
@@ -31,7 +31,7 @@
         </td>
       </tr>
     <tr>
-      <td> BOOKED! </td>
+      <td> <span style="font-weight: 300; color: black">BOOKED!</span> </td>
     </tr>
     </table>
   </div>
@@ -39,16 +39,16 @@
     <div class="app-blurb">
     <table class="app-table">
       <tr>
-        <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
+        <th>Mentor: <%=appointment.mentor.full_name%> </th>
       </tr>
        <tr>
-        <td>Date: <%=appointment.date%></td>
+        <td>Date: <%=appointment.date.strftime('%A, %b %d')%></td>
       </tr>
       <tr>
-        <td>Start time: <%=appointment.start_time%></td>
+        <td>Start time: <%=appointment.start_time.strftime('%I:%M %p')%></td>
       </tr>
       <tr>
-        <td>End time: <%=appointment.end_time%></td>
+        <td>End time: <%=appointment.end_time.strftime('%I:%M %p')%></td>
       </tr>
       <tr>
         <td>Mentor phase: <%=appointment.mentor_phase%></td>
@@ -69,25 +69,25 @@
 
 
 
-<h3> Passed appointments</h3>
+<h3> Completed Appointments</h3>
     <% @user.passed_appointments.each do |appointment| %>
     <div class="app-blurb">
       <table class="app-table">
-      <tr>
-        <th>Mentor: <%=User.find_by(id: appointment.mentor_id).full_name%></th>
-      </tr>
-       <tr>
-        <td>Date: <%=appointment.date%></td>
-      </tr>
-      <tr>
-        <td>Start time: <%=appointment.start_time%></td>
-      </tr>
-      <tr>
-        <td>End time: <%=appointment.end_time%></td>
-      </tr>
-      <tr>
-        <td>Mentor phase: <%=appointment.mentor_phase%></td>
-      </tr>
+        <tr>
+          <th>Mentor: <%=appointment.mentor.full_name%> </th>
+        </tr>
+         <tr>
+          <td>Date: <%=appointment.date.strftime('%A, %b %d')%></td>
+        </tr>
+        <tr>
+          <td>Start time: <%=appointment.start_time.strftime('%I:%M %p')%></td>
+        </tr>
+        <tr>
+          <td>End time: <%=appointment.end_time.strftime('%I:%M %p')%></td>
+        </tr>
+        <tr>
+          <td>Mentor phase: <%=appointment.mentor_phase%></td>
+        </tr>
 
       <tr>
         <td class="topic">Topic(s):
