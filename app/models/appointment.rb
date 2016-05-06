@@ -21,8 +21,8 @@ class Appointment < ActiveRecord::Base
     self.student_id == user.id
   end
 
-  def received_review
-  	self.reviews.select{|rev| rev.author_id != self.id }
+  def received_review(user)
+  	self.reviews.select{|rev| rev.author_id != user.id }
   end
 
   def date_valid
