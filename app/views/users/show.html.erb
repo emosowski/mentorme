@@ -87,15 +87,22 @@
       <tr>
         <td>Mentor phase: <%=appointment.mentor_phase%></td>
       </tr>
-      <tr>
-        <td><%=link_to 'Leave Review', new_appointment_review_path(appointment) %></td>
-      </tr>
+
       <tr>
         <td>Topic(s):</td>
         <% appointment.topics.each do |topic| %>
         <td class="topic"> <%=link_to(topic.name, topic_path(topic))%></td>
         <% end %>
       </tr>
+        <% if appointment.reviews.empty? %>
+      <tr>
+        <td><%=link_to 'Leave Review', new_appointment_review_path(appointment) %></td>
+      </tr>
+      <% else %>
+        <tr>
+          <td><b>Reviewed!</b></td>
+        </tr>
+      <% end %>
     </table>
   </div>
     <%end%>
