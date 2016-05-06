@@ -1,3 +1,4 @@
+<h1 id="welcome">Yo, <%= link_to "#{current_user.username}", root_path%>!</h1>
 <div id="usernav">
 <%=link_to 'See Your Reviews', user_reviews_path(current_user) %>
 <% if current_user.type == "Mentor" %>

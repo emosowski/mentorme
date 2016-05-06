@@ -1,6 +1,6 @@
 class Appointment < ActiveRecord::Base
   validates :date, :start_time, :end_time, :mentor_phase, :mentor_id, presence: true
-  validate :date_valid, :time_valid
+  # validate :date_valid, :time_valid
 
   has_many :appointment_topics
   has_many :topics, through: :appointment_topics
