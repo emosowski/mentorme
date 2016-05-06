@@ -17,10 +17,36 @@
  *= require_self
  */
 
+body {
+	font-weight: lighter;
+	color: gray;
+}
 
+nav {
+	height: 50px;
+	background-color: gray;
+	line-height: 50px;
+}
 
+nav a {
+	margin-left: 25px;
+	color: white;
+}
 
- #title-box {
- text-align: center;
- display: block;
+a:hover {
+		text-decoration: none;
+}
+
+#main-title {
+	font-size: 45px;
+}
+
+#form {
+	text-align: center;
+	margin: 10%;
+}
+
+#usernave {
+	margin: 25px;
+	
 }

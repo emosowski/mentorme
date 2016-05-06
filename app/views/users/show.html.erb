@@ -1,12 +1,5 @@
-<%=link_to 'See Your Reviews', user_reviews_path(@user) %>
-<% if current_user.type == "Mentor" %>
-  <p><%=link_to('All appointments', appointments_path)%></p>
-  <p><%=link_to('Create appointment', new_appointment_path)%></p>
-<% else  %>
-  <p><%=link_to('Show available appointments', appointments_path)%></p>
-<% end %>
 
-  <% @user.future_appointments.each do |appointment| %>
+<% @user.future_appointments.each do |appointment| %>
     <h4>Appointment</h4>
     <table>
       <tr>
@@ -23,12 +16,6 @@
       </tr>
       <tr>
         <td>Mentor phase: <%=appointment.mentor_phase%></td>
-      </tr>
-        <tr>
-
-        <% appointment.topics.each do |topic| %>
-          <td class="topic"><%=link_to(topic.name, topic_path(topic))%></td>
-        <% end %>
       </tr>
     </table>
 
@@ -55,11 +42,6 @@
       </tr>
       <tr>
         <td><%=link_to 'Leave Review', new_appointment_review_path(appointment) %></td>
-      </tr>
-      <tr>
-        <% appointment.topics.each do |topic| %>
-        <td class="topic"><%=link_to(topic.name, topic_path(topic))%></td>
-        <% end %>
       </tr>
     </table>
     <%end%>
