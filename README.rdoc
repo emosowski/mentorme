@@ -1,28 +1,12 @@
-== README
+#MentorMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Click to edit project descriptionMentorMe is a scheduling app that provides a convenient way for mentors and students to connect and plan meetings. Mentors can create meetings and tag their specific skillsets, and students can signup. Students can also search for appointments by tagged skills. Once the session has been completed, both parties can review each other.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+#Team Members
+
+Emily Osowski
+
+Kevin Perkins
+
+Alex Forger
